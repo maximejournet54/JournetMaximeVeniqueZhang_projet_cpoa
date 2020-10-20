@@ -82,7 +82,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Button>
-                  <Label fx:id="lblAffichage" alignment="CENTER" contentDisplay="CENTER" text="Label" textAlignment="CENTER" textFill="#1530b7" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <Label fx:id="lblAffichage" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="137.0" text="Label" textAlignment="CENTER" textFill="#1530b7" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>

@@ -46,7 +46,7 @@
                   </Button>
                   <DatePicker fx:id="dpDate" style="-fx-background-color: #525252;" GridPane.columnIndex="1" />
                   <ComboBox fx:id="cbxClient" prefWidth="150.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="lblAffichage" text="label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="lblAffichage" prefHeight="38.0" prefWidth="276.0" text="label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="26.0" />
                      </font>

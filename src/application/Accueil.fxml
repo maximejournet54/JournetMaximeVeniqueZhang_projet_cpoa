@@ -27,7 +27,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Quitter">
                      <items>
-                        <MenuItem fx:id="mnu_quitter" mnemonicParsing="false" text="Quitter l'application" />
+                        <MenuItem fx:id="mnu_quitter" mnemonicParsing="false" onAction="#click_mnu_quitter" text="Quitter l'application" />
                      </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Aide">

@@ -2,15 +2,21 @@ package application;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import connexion.Persistance;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
@@ -26,7 +32,7 @@ public class AccueilController implements Initializable {
 	@FXML private ChoiceBox<Persistance> cbxPersistance;
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(URL location, ResourceBundle resources)  {
 		try {
 			ArrayList<Persistance> list=new ArrayList<>();
 			for(Persistance p:Persistance.values() ){
@@ -101,5 +107,23 @@ public class AccueilController implements Initializable {
 		    } catch(Exception e) {
 		        e.printStackTrace();
 		    }
+	}
+	
+	@FXML
+	public void click_mnu_quitter() {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Attention!");
+		alert.setHeaderText("Attention, vous allez fermer l'application");
+		alert.setContentText("Voulez-vous vraiment fermer l'application?");
+		ButtonType btnOui = new ButtonType("Oui");
+		ButtonType btnNon = new ButtonType("Non", ButtonData.CANCEL_CLOSE);
+		alert.getButtonTypes().setAll(btnOui,btnNon);
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == btnOui){
+			Platform.exit();
+		}
+		else {
+			
+		}
 	}
 }

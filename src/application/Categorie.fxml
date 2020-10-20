@@ -42,7 +42,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Button>
-                  <Label fx:id="lblAffichage" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="lblAffichage" prefHeight="34.0" prefWidth="77.0" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="23.0" />
                      </font></Label>
@@ -52,8 +52,8 @@
                <children>
                   <TableView layoutX="42.0" layoutY="19.0" prefHeight="200.0" prefWidth="343.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn prefWidth="138.56604385375977" text="Titre" />
-                      <TableColumn prefWidth="130.41502380371094" text="Visuel" />
+                      <TableColumn prefWidth="174.79236221313477" text="Titre" />
+                      <TableColumn prefWidth="167.3018341064453" text="Visuel" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="416.0" layoutY="70.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
