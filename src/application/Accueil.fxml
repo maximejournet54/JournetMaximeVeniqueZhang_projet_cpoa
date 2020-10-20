@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AccueilController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #525252;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AccueilController">
    <children>
-      <VBox layoutX="7.0" layoutY="6.0" prefHeight="385.0" prefWidth="587.0">
+      <VBox layoutX="7.0" layoutY="6.0" prefHeight="385.0" prefWidth="587.0" style="-fx-background-color: #525252;">
          <children>
-            <MenuBar>
+            <MenuBar fx:id="mnu_bar" style="-fx-background-color: #666666;">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu fx:id="mnu" mnemonicParsing="false" text="Afficher">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="mnu_categorie" mnemonicParsing="false" text="Categorie" />
+                        <MenuItem fx:id="mnu_client" mnemonicParsing="false" text="Client" />
+                        <MenuItem fx:id="mnu_commande" mnemonicParsing="false" text="Commande" />
+                        <MenuItem fx:id="mnu_produit" mnemonicParsing="false" text="Produit" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
+                <Menu mnemonicParsing="false" text="Quitter">
+                     <items>
+                        <MenuItem fx:id="mnu_quitter" mnemonicParsing="false" text="Quitter l'application" />
+                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="Aide">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem fx:id="mnu_info" mnemonicParsing="false" text="Informations" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
+            <Pane prefHeight="253.0" prefWidth="587.0">
+               <children>
+                  <Label fx:id="lbl_bienvenue" layoutX="30.0" layoutY="52.0" prefHeight="87.0" prefWidth="528.0" text="Bienvenue dans l'application de gestion de gestion des produits" textFill="#172861f7">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="577.0">
+               <children>
+                  <ChoiceBox fx:id="cbx_solution" layoutX="294.0" layoutY="52.0" prefWidth="150.0" style="-fx-background-color: #666666;" />
+                  <Label fx:id="lbl_solution" layoutX="188.0" layoutY="56.0" text="type de solution" textFill="#151393" />
+                  <Button fx:id="btn_valider" layoutX="294.0" layoutY="99.0" mnemonicParsing="false" onAction="#click_btn" text="Valider" />
+               </children>
+            </Pane>
          </children>
       </VBox>
    </children>

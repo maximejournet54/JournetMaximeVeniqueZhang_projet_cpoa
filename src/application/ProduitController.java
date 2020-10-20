@@ -20,14 +20,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 
-public class AjoutProduitController implements Initializable {
+public class ProduitController implements Initializable {
 	@FXML private Label lblAffichage;
 	@FXML private TextField editNom;
 	@FXML private TextArea editDesc; 
 	@FXML private TextField editTarif;
 	@FXML private ChoiceBox<Categorie> cbxCategorie;
 
-	DAOFactory dao = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
+	DAOFactory dao = DAOFactory.getDAOFactory(Persistance.MYSQL);
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
