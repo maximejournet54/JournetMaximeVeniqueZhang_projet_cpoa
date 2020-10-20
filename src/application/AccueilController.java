@@ -7,9 +7,13 @@ import java.util.ResourceBundle;
 import connexion.Persistance;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 public class AccueilController implements Initializable {
 
@@ -41,16 +45,61 @@ public class AccueilController implements Initializable {
 	
 	@FXML
 	public void click_mnu_categorie() {
+		try {
+	        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Categorie.fxml"));
+	        Parent root1 = (Parent) fxmlLoader.load();
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root1)); 
+	        stage.setTitle("Menu Categorie");
+	        stage.show();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
 		
 	}
 	
 	@FXML
 	public void click_mnu_client() {
+		try {
+	        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Client.fxml"));
+	        Parent root1 = (Parent) fxmlLoader.load();
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root1));  
+	        stage.setTitle("Menu Client");
+	        stage.show();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
 		
 	}
 	
 	@FXML
 	public void click_mnu_commande() {
+		try {
+	        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Commande.fxml"));
+	        Parent root1 = (Parent) fxmlLoader.load();
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root1));  
+	        stage.setTitle("Menu Commande");
+	        stage.show();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
 		
+	}
+	
+	@FXML
+	public void click_mnu_produit() {
+		//ProduitController.startProduit(); pas besoin de ça en fait
+		 try {
+		        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Produit.fxml"));
+		        Parent root1 = (Parent) fxmlLoader.load();
+		        Stage stage = new Stage();
+		        stage.setScene(new Scene(root1));  
+		        stage.setTitle("Menu Produit");
+		        stage.show();
+		    } catch(Exception e) {
+		        e.printStackTrace();
+		    }
 	}
 }

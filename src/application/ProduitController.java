@@ -32,7 +32,7 @@ public class ProduitController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-	    	this.lblAffichage.setText("");//affichage=visuel
+	    	this.lblAffichage.setText("");
 	    	this.editNom.setText("");
 	    	this.editDesc.setText("");
 	    	this.editTarif.setText("");
@@ -97,5 +97,17 @@ public class ProduitController implements Initializable {
 		}
 	}
 
+	
+	@FXML
+	public void click_btn_modifier() {
+		
+	}
+
+	@FXML
+	public void click_btn_supprimer() {
+		
+	}
+
+	
 }
 

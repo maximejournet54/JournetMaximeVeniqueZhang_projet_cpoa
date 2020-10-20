@@ -14,8 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProduitController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProduitController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -33,45 +34,66 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblNom" alignment="CENTER" text="Nom :" textAlignment="CENTER">
+                  <Label fx:id="lblNom" alignment="CENTER" text="Nom :" textAlignment="CENTER" textFill="#1530b7">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="lblDesc" text="Description :" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="lblDesc" text="Description :" textAlignment="CENTER" textFill="#1530b7" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="lblTarif" text="Tarif :" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Label fx:id="lblTarif" text="Tarif :" textAlignment="CENTER" textFill="#1530b7" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="21.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="lblCateg" text="Catégorie :" textAlignment="CENTER" GridPane.rowIndex="3">
+                  <Label fx:id="lblCateg" text="Catégorie :" textAlignment="CENTER" textFill="#1530b7" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="editNom" maxWidth="225.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
-                  <TextArea fx:id="editDesc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                  <TextField fx:id="editTarif" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ChoiceBox fx:id="cbxCategorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label fx:id="lblTarifView" text="euros à l'unité" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="editNom" maxWidth="225.0" prefWidth="282.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                  <TextArea fx:id="editDesc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="editTarif" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ChoiceBox fx:id="cbxCategorie" prefWidth="150.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="lblTarifView" text="euros à l'unité" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
-                  <Button fx:id="btnCreer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_btn" prefHeight="25.0" prefWidth="64.0" text="Créer" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label fx:id="lblAffichage" alignment="CENTER" contentDisplay="CENTER" text="Label" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <Button fx:id="btnCreer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_btn" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #525252;" text="Créer" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Label fx:id="lblAffichage" alignment="CENTER" contentDisplay="CENTER" text="Label" textAlignment="CENTER" textFill="#1530b7" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></Label>
+                     </padding>
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
                </children>
             </GridPane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="27.0" layoutY="14.0" prefHeight="160.0" prefWidth="391.0">
+                  <TableView layoutX="27.0" layoutY="14.0" prefHeight="160.0" prefWidth="391.0" style="-fx-background-color: #525252;">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Nom" />
                       <TableColumn prefWidth="139.33333587646484" text="Description" />
@@ -79,8 +101,14 @@
                         <TableColumn prefWidth="84.00006103515625" text="Categorie" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btn_modifier" layoutX="462.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modifier" />
-                  <Button fx:id="btn_supprimer" layoutX="462.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Supprimer" />
+                  <Button fx:id="btn_modifier" layoutX="462.0" layoutY="41.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="btn_supprimer" layoutX="462.0" layoutY="100.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
                </children>
             </Pane>
          </children>
