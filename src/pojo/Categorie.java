@@ -2,8 +2,8 @@ package pojo;
 
 public class Categorie {
     private int id;
-    private String visuel;
     private String titre;
+    private String visuel;
 
     public Categorie (int id, String titre, String visuel) {
 		this.setId(id);
@@ -60,6 +60,6 @@ public class Categorie {
     
     @Override
 	public String toString() {
-		return "vous avez saisi: " +titre + visuel;
+		return titre +" "+ visuel;
 	}
 }

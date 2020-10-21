@@ -50,10 +50,10 @@
             </GridPane>
             <Pane prefHeight="240.0" prefWidth="588.0">
                <children>
-                  <TableView layoutX="42.0" layoutY="19.0" prefHeight="200.0" prefWidth="343.0" style="-fx-background-color: #525252;">
+                  <TableView fx:id="editView" layoutX="42.0" layoutY="19.0" prefHeight="200.0" prefWidth="343.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn prefWidth="174.79236221313477" text="Titre" />
-                      <TableColumn prefWidth="167.3018341064453" text="Visuel" />
+                      <TableColumn fx:id="editViewtitre" prefWidth="174.79236221313477" text="Titre" />
+                      <TableColumn fx:id="editViewvisuel" prefWidth="167.3018341064453" text="Visuel" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="416.0" layoutY="70.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">

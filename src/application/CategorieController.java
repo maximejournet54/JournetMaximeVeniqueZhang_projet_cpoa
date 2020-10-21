@@ -5,11 +5,15 @@ import java.util.ResourceBundle;
 
 import connexion.Persistance;
 import dao.factory.DAOFactory;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import pojo.Categorie;
 
@@ -17,6 +21,9 @@ public class CategorieController  implements Initializable {
 	@FXML private Label lblAffichage;
 	@FXML private TextField editTitre;
 	@FXML private TextField editVisuel;
+	@FXML private TableView<Categorie> editView;
+	@FXML private TableColumn<Categorie, String> editViewtitre;
+	@FXML private TableColumn<Categorie, String> editViewvisuel;
 
 	
 	DAOFactory dao = DAOFactory.getDAOFactory(Persistance.MYSQL);
@@ -28,6 +35,9 @@ public class CategorieController  implements Initializable {
 	    	this.lblAffichage.setText("");
 	    	this.editTitre.setText("");
 	    	this.editVisuel.setText("");
+	    	this.editView.setItems(FXCollections.observableArrayList(dao.getCategorieDAO().findAll()));
+	    	this.editViewtitre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+	        this.editViewvisuel.setCellValueFactory(new PropertyValueFactory<>("visuel"));
 
 		} catch (Exception e) {
 		}
@@ -41,10 +51,10 @@ public class CategorieController  implements Initializable {
 		String erreur="";
 		
 		if (titre.isEmpty()) {
-			erreur = erreur + "\nLe titre est vide";
+			erreur = erreur + "Le titre est vide\n";
 		}
 		if (visuel.isEmpty()) {
-			erreur = erreur + "\nLe visuel est vide";
+			erreur = erreur + "Le visuel est vide\n";
 		}
 		if (erreur != "") {
 			this.lblAffichage.setTextFill(Color.web("#bb0b0b"));
