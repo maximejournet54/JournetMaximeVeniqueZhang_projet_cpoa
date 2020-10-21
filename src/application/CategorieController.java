@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import connexion.Persistance;
 import dao.factory.DAOFactory;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -85,7 +84,9 @@ public class CategorieController  implements Initializable {
 	}
 
 	@FXML
-	public void click_btn_supprimer() {
+	public void click_btn_supprimer() throws Exception {
+		dao.getCategorieDAO().delete(dao.getCategorieDAO().getById(this.editView.getSelectionModel().getSelectedItems().get(0).getId()));
+		initialize(null, null);
 		
 	}
 
