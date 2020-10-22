@@ -57,8 +57,8 @@
                <children>
                   <TableView fx:id="tab" layoutY="12.0" prefHeight="156.0" prefWidth="590.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn prefWidth="266.2641496658325" text="Nom" />
-                      <TableColumn prefWidth="323.3208312988281" text="Prenom" />
+                      <TableColumn fx:id="editViewNom" prefWidth="266.2641496658325" text="Nom" />
+                      <TableColumn fx:id="editViewPrenom" prefWidth="323.3208312988281" text="Prenom" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="63.0" layoutY="174.0" mnemonicParsing="false" onAction="#click_btn_modifier" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">

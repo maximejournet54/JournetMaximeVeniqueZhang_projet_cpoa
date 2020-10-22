@@ -45,7 +45,7 @@
                      </font>
                   </Button>
                   <DatePicker fx:id="dpDate" style="-fx-background-color: #525252;" GridPane.columnIndex="1" />
-                  <ComboBox fx:id="cbxClient" prefWidth="150.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cbxClient" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label fx:id="lblAffichage" prefHeight="38.0" prefWidth="276.0" text="label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="26.0" />
@@ -55,13 +55,13 @@
             </GridPane>
             <Pane prefHeight="215.0" prefWidth="591.0">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="177.0" prefWidth="454.0">
+                  <TableView fx:id="editView" layoutX="14.0" layoutY="14.0" prefHeight="177.0" prefWidth="454.0">
                     <columns>
-                      <TableColumn prefWidth="68.83019638061523" text="Date " />
-                      <TableColumn minWidth="4.52825927734375" prefWidth="103.24524688720703" text="Client" />
-                        <TableColumn prefWidth="97.81126403808594" text="Produit" />
-                        <TableColumn prefWidth="100.5284423828125" text="Quantite" />
-                        <TableColumn prefWidth="80.86788940429688" text="Prix total" />
+                      <TableColumn fx:id="editViewDate" prefWidth="68.83019638061523" text="Date " />
+                      <TableColumn fx:id="editViewClient" minWidth="4.52825927734375" prefWidth="103.24524688720703" text="Client" />
+                        <TableColumn fx:id="editViewProduit" prefWidth="97.81126403808594" text="Produit" />
+                        <TableColumn fx:id="editViewQuantite" prefWidth="100.5284423828125" text="Quantite" />
+                        <TableColumn fx:id="editViewPrix" prefWidth="80.86788940429688" text="Prix total" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="489.0" layoutY="46.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">

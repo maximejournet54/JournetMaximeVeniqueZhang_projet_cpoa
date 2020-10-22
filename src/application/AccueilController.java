@@ -47,6 +47,7 @@ public class AccueilController implements Initializable {
 	@FXML
 	public void click_btn() {
 		Persistance p=cbxPersistance.getSelectionModel().getSelectedItem(); 
+		//a fixer
 	}
 	
 	@FXML
@@ -61,7 +62,6 @@ public class AccueilController implements Initializable {
 	    } catch(Exception e) {
 	        e.printStackTrace();
 	    }
-		
 	}
 	
 	@FXML
@@ -76,7 +76,6 @@ public class AccueilController implements Initializable {
 	    } catch(Exception e) {
 	        e.printStackTrace();
 	    }
-		
 	}
 	
 	@FXML
@@ -91,12 +90,10 @@ public class AccueilController implements Initializable {
 	    } catch(Exception e) {
 	        e.printStackTrace();
 	    }
-		
 	}
 	
 	@FXML
 	public void click_mnu_produit() {
-		//ProduitController.startProduit(); pas besoin de ça en fait
 		 try {
 		        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Produit.fxml"));
 		        Parent root1 = (Parent) fxmlLoader.load();
@@ -121,9 +118,6 @@ public class AccueilController implements Initializable {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == btnOui){
 			Platform.exit();
-		}
-		else {
-			
 		}
 	}
 }

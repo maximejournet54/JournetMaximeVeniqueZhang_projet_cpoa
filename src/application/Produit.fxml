@@ -93,12 +93,12 @@
             </GridPane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="27.0" layoutY="14.0" prefHeight="160.0" prefWidth="391.0" style="-fx-background-color: #525252;">
+                  <TableView fx:id="editView" layoutX="27.0" layoutY="14.0" prefHeight="160.0" prefWidth="391.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Nom" />
-                      <TableColumn prefWidth="139.33333587646484" text="Description" />
-                        <TableColumn prefWidth="65.3333740234375" text="Tarif" />
-                        <TableColumn prefWidth="84.00006103515625" text="Categorie" />
+                      <TableColumn fx:id="editViewNom" prefWidth="75.0" text="Nom" />
+                      <TableColumn fx:id="editViewDescription" prefWidth="139.33333587646484" text="Description" />
+                        <TableColumn fx:id="editViewTarif" prefWidth="65.3333740234375" text="Tarif" />
+                        <TableColumn fx:id="editViewCategorie" prefWidth="106.66668701171875" text="Categorie" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="462.0" layoutY="41.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
