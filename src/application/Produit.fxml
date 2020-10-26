@@ -105,7 +105,7 @@
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button fx:id="btn_supprimer" layoutX="462.0" layoutY="100.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
+                  <Button fx:id="btn_supprimer" layoutX="462.0" layoutY="100.0" mnemonicParsing="false" onAction="#click_btn_supprimer" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
