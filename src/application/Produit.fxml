@@ -93,7 +93,7 @@
             </GridPane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="editView" layoutX="27.0" layoutY="14.0" prefHeight="160.0" prefWidth="391.0" style="-fx-background-color: #525252;">
+                  <TableView fx:id="editView" layoutX="27.0" layoutY="36.0" prefHeight="157.0" prefWidth="391.0" style="-fx-background-color: #525252;">
                     <columns>
                       <TableColumn fx:id="editViewNom" prefWidth="75.0" text="Nom" />
                       <TableColumn fx:id="editViewDescription" prefWidth="139.33333587646484" text="Description" />
@@ -109,6 +109,7 @@
                      <font>
                         <Font size="16.0" />
                      </font></Button>
+                  <TextField fx:id="editTri" layoutX="114.0" layoutY="1.0" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #525252;" text="Trier/Filtrer" />
                </children>
             </Pane>
          </children>

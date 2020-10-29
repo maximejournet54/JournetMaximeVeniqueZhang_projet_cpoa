@@ -102,7 +102,7 @@ public class MYSQLCommandeDAO implements CommandeDAO{
 		ResultSet res = requete.executeQuery();		
 		if (res.next()) {
 			//requete pour obtenir toute les lignes de commandes concernees par cette commande
-			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_Commande` where id_commande=" + id);
+			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_commande` where id_commande=" + id);
 			ResultSet resLc = requeteLc.executeQuery();	
 			while (resLc.next()) {
 				//requete pour obtenir pour les produits concernes par la commande
@@ -134,7 +134,7 @@ public class MYSQLCommandeDAO implements CommandeDAO{
 		while (res.next()) {
 			HashMap<Produit, LigneCommande> ligneCommande = new HashMap<Produit, LigneCommande>();		
 			//requete pour obtenir toute les lignes de commandes concernees par cette commande
-			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_Commande` where id_commande=" + res.getInt(1));
+			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_commande` where id_commande=" + res.getInt(1));
 			ResultSet resLc = requeteLc.executeQuery();		
 			while (resLc.next()) {
 				//requete pour obtenir pour les produits concernes par la commande
