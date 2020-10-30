@@ -70,7 +70,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_modifier" layoutX="489.0" layoutY="108.0" mnemonicParsing="false" onAction="#click_btn_modifier" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
+                  <Button fx:id="btn_supprimer" layoutX="489.0" layoutY="108.0" mnemonicParsing="false" onAction="#click_btn_supprimer" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
                      <font>
                         <Font size="16.0" />
                      </font>
