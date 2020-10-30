@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/tests/ListeMemoireCategorieDAOtest.java=UTF-8
+encoding//src/tests/ListeMemoireClientDAOtest.java=UTF-8
+encoding//src/tests/ListeMemoireCommandeDAOtest.java=UTF-8
+encoding//src/tests/ListeMemoireLigneComandeDAOtest.java=UTF-8
+encoding//src/tests/ListeMemoireProduitDAOtest.java=UTF-8
+encoding//src/tests/MYSQLLigneCommandeDAOtest.java=UTF-8
