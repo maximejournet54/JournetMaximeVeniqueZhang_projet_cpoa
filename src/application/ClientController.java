@@ -24,6 +24,7 @@ public class ClientController  implements Initializable {
 	@FXML private Label lblAffichage;
 	@FXML private TextField editNom;
 	@FXML private TextField editPrenom;
+	@FXML private TextField editTri;
 	@FXML private TableView<Client> editView;
 	@FXML private TableColumn<Client, String> editViewNom;
 	@FXML private TableColumn<Client, String> editViewPrenom;

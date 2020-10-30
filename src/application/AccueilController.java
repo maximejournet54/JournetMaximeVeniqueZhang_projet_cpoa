@@ -33,15 +33,23 @@ public class AccueilController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
+		
+		//ne fonctionne pas
 		try {
+			/*
 			ArrayList<Persistance> list=new ArrayList<>();
 			for(Persistance p:Persistance.values() ){
 				list.add(p);
 			}
-			this.cbxPersistance.setItems(FXCollections.observableArrayList(list));
+			*/
+			ChoiceBox<Persistance> cbxPersistance = new ChoiceBox<>();
+			cbxPersistance.getItems().setAll(Persistance.values());
+			
+			
 	    	
 		} catch (Exception e) {
 		}
+		
 	}
 	
 	@FXML

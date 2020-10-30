@@ -29,8 +29,9 @@ import javafx.stage.Stage;
 public class ProduitController implements Initializable {
 	@FXML private Label lblAffichage;
 	@FXML private TextField editNom;
-	@FXML private TextArea editDesc; 
+	@FXML private TextField editTri;
 	@FXML private TextField editTarif;
+	@FXML private TextArea editDesc; 
 	@FXML private ChoiceBox<Categorie> cbxCategorie;
 	@FXML private TableView<Produit> editView;
 	@FXML private TableColumn<Produit, String> editViewNom;
@@ -54,6 +55,9 @@ public class ProduitController implements Initializable {
 	        this.editViewDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 	        this.editViewTarif.setCellValueFactory(new PropertyValueFactory<>("tarif"));
 	        this.editViewCategorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+	        
+	        //tri a faire
+	        
 		} catch (Exception e) {
 		}
 	}
