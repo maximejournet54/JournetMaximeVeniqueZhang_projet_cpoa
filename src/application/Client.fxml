@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,64 +14,123 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1188.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClientController">
    <children>
-      <VBox layoutX="4.0" layoutY="3.0" prefHeight="391.0" prefWidth="589.0">
+      <VBox layoutX="4.0" layoutY="3.0" prefHeight="735.0" prefWidth="1188.0">
          <children>
-            <GridPane prefHeight="162.0" prefWidth="590.0">
+            <GridPane prefHeight="483.0" prefWidth="1027.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblNom" text="Nom:" textFill="#1530b7">
+                  <Label fx:id="lblNom" text="Nom" textFill="#1530b7">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPrenom" text="Prenom: " textFill="#1530b7" GridPane.rowIndex="1">
+                  <Label fx:id="lblPrenom" text="Prenom:" textFill="#1530b7" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblAffichage" prefHeight="17.0" prefWidth="264.0" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="lblAffichage" prefHeight="17.0" prefWidth="264.0" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_creer" contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_btn" prefHeight="5.0" prefWidth="94.0" style="-fx-background-color: #525252;" text="Creer" textFill="#1530b7" GridPane.rowIndex="2">
+                  <Button fx:id="btn_creer" contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_btn" prefHeight="5.0" prefWidth="94.0" style="-fx-background-color: #525252;" text="Creer" textFill="#1530b7" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="editNom" prefHeight="0.0" prefWidth="295.0" style="-fx-background-color: #525252;" GridPane.columnIndex="1" />
-                  <TextField fx:id="editPrenom" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="editNom" prefHeight="0.0" prefWidth="295.0" promptText="Saisir le nom" style="-fx-background-color: #525252;" GridPane.columnIndex="1" />
+                  <TextField fx:id="editPrenom" promptText="Saisir le prénom" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="lblPrenom1" text="Identifiant" textFill="#1530b7" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom11" text="Mot de passe" textFill="#1530b7" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom111" text="Numero rue" textFill="#1530b7" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom1111" text="Rue" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom11111" text="Code postal" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom111111" text="Ville" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom1111111" text="Pays" textFill="#1530b7" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editId" promptText="Saisir l'identifiant (adresse email)" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="editMdp" promptText="Saisir le mot de passe" style="-fx-background-color: #525252;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="editNum" promptText="Saisir le numéro de rue" style="-fx-background-color: #525252;" GridPane.columnIndex="3" />
+                  <TextField fx:id="editVoie" promptText="Saisir le nom de la rue" style="-fx-background-color: #525252;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="editCp" promptText="Saisir le code postal" style="-fx-background-color: #525252;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="editVille" promptText="Saisir le nom de la ville" style="-fx-background-color: #525252;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <TextField fx:id="editPays" promptText="Saisir le pays" style="-fx-background-color: #525252;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                </children>
             </GridPane>
-            <Pane prefHeight="238.0" prefWidth="590.0">
+            <Pane prefHeight="315.0" prefWidth="1027.0">
                <children>
-                  <TableView fx:id="tab" layoutY="34.0" prefHeight="158.0" prefWidth="590.0" style="-fx-background-color: #525252;">
+                  <TableView fx:id="editView" layoutY="34.0" prefHeight="158.0" prefWidth="1176.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn fx:id="editViewNom" prefWidth="266.2641496658325" text="Nom" />
-                      <TableColumn fx:id="editViewPrenom" prefWidth="323.3208312988281" text="Prenom" />
+                      <TableColumn fx:id="editViewNom" prefWidth="130.41510581970215" text="nom" />
+                      <TableColumn fx:id="editViewPrenom" prefWidth="102.339599609375" text="prenom" />
+                        <TableColumn fx:id="editViewId" prefWidth="157.5848846435547" text="identifiant" />
+                        <TableColumn fx:id="editViewMdp" prefWidth="141.28298950195312" text="mot_de_passe" />
+                        <TableColumn fx:id="editViewNum" prefWidth="105.0567626953125" text="adr_numero" />
+                        <TableColumn fx:id="editViewVoie" minWidth="3.6226806640625" prefWidth="104.15087890625" text="adr_voie" />
+                        <TableColumn fx:id="editViewCp" prefWidth="102.3397216796875" text="adr_code_postal" />
+                        <TableColumn fx:id="editViewVille" prefWidth="137.6605224609375" text="adr_ville" />
+                        <TableColumn fx:id="editViewPays" prefWidth="195.62255859375" text="adr_pays" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btn_modifier" layoutX="60.0" layoutY="197.0" mnemonicParsing="false" onAction="#click_btn_modifier" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
+                  <Button fx:id="btn_modifier" layoutX="169.0" layoutY="239.0" mnemonicParsing="false" onAction="#click_btn_modifier" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_supprimer" layoutX="163.0" layoutY="197.0" mnemonicParsing="false" onAction="#click_btn_supprimer" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
+                  <Button fx:id="btn_supprimer" layoutX="591.0" layoutY="239.0" mnemonicParsing="false" onAction="#click_btn_supprimer" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="editTri" layoutX="163.0" layoutY="1.0" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #525252;" text="Trier/Filtrer" />
+                  <TextField fx:id="editTri" layoutX="295.0" prefHeight="27.0" prefWidth="217.0" promptText="Rechercher" style="-fx-background-color: #525252;" />
+                  <ChoiceBox fx:id="cbxTri" layoutX="130.0" layoutY="1.0" prefWidth="150.0" style="-fx-background-color: #525252;" />
+                  <Label layoutX="32.0" layoutY="5.0" text="Trier par" textFill="#1530b7">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

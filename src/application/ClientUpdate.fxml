@@ -8,35 +8,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1170.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClientController">
    <children>
-      <VBox layoutX="4.0" layoutY="4.0" prefHeight="391.0" prefWidth="592.0">
+      <VBox layoutX="4.0" layoutY="4.0" prefHeight="730.0" prefWidth="1170.0">
          <children>
-            <Pane prefHeight="408.0" prefWidth="592.0">
+            <Pane prefHeight="731.0" prefWidth="1170.0">
                <children>
-                  <Label fx:id="lblNom" layoutX="39.0" layoutY="36.0" text="Nom:" textFill="#1530b7">
+                  <Label fx:id="lblNom" layoutX="37.0" layoutY="62.0" text="Nom" textFill="#1530b7">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="29.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPrenom" layoutX="37.0" layoutY="110.0" text="Prenom: " textFill="#1530b7">
+                  <Label fx:id="lblPrenom" layoutX="37.0" layoutY="140.0" text="Prenom:" textFill="#1530b7">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="29.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="editNom" layoutX="195.0" layoutY="42.0" prefHeight="0.0" prefWidth="295.0" style="-fx-background-color: #525252;" />
-                  <TextField fx:id="editPrenom" layoutX="195.0" layoutY="116.0" prefHeight="25.0" prefWidth="295.0" style="-fx-background-color: #525252;" />
-                  <Button fx:id="btn_modifier" contentDisplay="CENTER" layoutX="100.0" layoutY="190.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
+                  <Button fx:id="btn_modifier" contentDisplay="CENTER" layoutX="232.0" layoutY="500.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="68.0" prefWidth="163.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
                      <font>
-                        <Font size="19.0" />
+                        <Font size="25.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblAffichage" layoutX="294.0" layoutY="191.0" prefHeight="17.0" prefWidth="264.0" text="Label" textFill="#1530b7">
+                  <Label fx:id="lblAffichage" layoutX="581.0" layoutY="534.0" prefHeight="17.0" prefWidth="264.0" text="Label" textFill="#1530b7">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lblPrenom1" layoutX="37.0" layoutY="216.0" text="Identifiant" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editId" layoutX="249.0" layoutY="216.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir l'identifiant (adresse email)" style="-fx-background-color: #525252;" />
+                  <TextField fx:id="editPrenom" layoutX="249.0" layoutY="140.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir le prénom" style="-fx-background-color: #525252;" />
+                  <TextField fx:id="editNom" layoutX="249.0" layoutY="62.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir le nom" style="-fx-background-color: #525252;" />
+                  <Label fx:id="lblPrenom11" layoutX="37.0" layoutY="298.0" text="Mot de passe" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editMdp" layoutX="249.0" layoutY="307.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir le mot de passe" style="-fx-background-color: #525252;" />
+                  <Label fx:id="lblPrenom111" layoutX="658.0" layoutY="62.0" text="Numero rue" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editNum" layoutX="845.0" layoutY="62.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir le numéro de rue" style="-fx-background-color: #525252;" />
+                  <Label fx:id="lblPrenom1111" layoutX="658.0" layoutY="140.0" text="Rue" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editVoie" layoutX="845.0" layoutY="140.0" prefHeight="43.0" prefWidth="311.0" promptText="Saisir le nom de la rue" style="-fx-background-color: #525252;" />
+                  <Label fx:id="lblPrenom11111" layoutX="653.0" layoutY="216.0" text="Code postal" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom111111" layoutX="658.0" layoutY="320.0" text="Ville" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPrenom1111111" layoutX="656.0" layoutY="398.0" text="Pays" textFill="#1530b7">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editCp" layoutX="845.0" layoutY="213.0" prefHeight="50.0" prefWidth="311.0" promptText="Saisir le code postal" style="-fx-background-color: #525252;" />
+                  <TextField fx:id="editVille" layoutX="845.0" layoutY="304.0" prefHeight="50.0" prefWidth="311.0" promptText="Saisir le nom de la ville" style="-fx-background-color: #525252;" />
+                  <TextField fx:id="editPays" layoutX="845.0" layoutY="395.0" prefHeight="50.0" prefWidth="311.0" promptText="Saisir le pays" style="-fx-background-color: #525252;" />
                </children>
             </Pane>
          </children>

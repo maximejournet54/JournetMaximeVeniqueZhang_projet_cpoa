@@ -18,6 +18,12 @@ public class Commande {
 		this.setIdClient(idClient);
 		this.setLigneCommande(ligneCommande);
 	}
+	
+	public Commande(int id, LocalDate date, int idClient) {
+		this.setId(id);
+		this.setDate(date);
+		this.setIdClient(idClient);
+	}
     
     //getters et setters
     
@@ -72,7 +78,7 @@ public class Commande {
 
 	@Override
 	public String toString() {
-		return "Commande [id=" + id + ", date=" + formatage.format(getDate()) + ", idClient=" + idClient + "\n" + ligneCommande.values() + "]\n";
+		return  formatage.format(getDate()) +" "  +idClient ;
     } 
     
 }

@@ -1,13 +1,11 @@
 package application;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import connexion.Persistance;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,24 +31,11 @@ public class AccueilController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
-		
-		//ne fonctionne pas
 		try {
-			/*
-			ArrayList<Persistance> list=new ArrayList<>();
-			for(Persistance p:Persistance.values() ){
-				list.add(p);
-			}
-			*/
-			ChoiceBox<Persistance> cbxPersistance = new ChoiceBox<>();
 			cbxPersistance.getItems().setAll(Persistance.values());
-			
-			
-	    	
-		} catch (Exception e) {
+		} catch (Exception e) {	
 		}
-		
-	}
+}
 	
 	@FXML
 	public void click_btn() {

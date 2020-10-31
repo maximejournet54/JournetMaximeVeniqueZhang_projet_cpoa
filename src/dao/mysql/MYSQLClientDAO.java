@@ -25,9 +25,16 @@ public class MYSQLClientDAO implements ClientDAO{
 		Connection laConnexion = ConnexionMYSQL.creeConnexion();
 		int nbLignes = 0;
 		PreparedStatement requete = laConnexion.prepareStatement("insert into `Client` (`nom`, `prenom`, `identifiant`, `mot_de_passe`, `adr_numero`, `adr_voie`, `adr_code_postal`, `adr_ville`, `adr_pays`) "
-				+ "VALUES (?, ?,'identifiant', 'mdp' , 0, 0, 0, 'HOME', 'LAND')");	
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");	
 		requete.setString(1, client.getNom());	
-		requete.setString(2, client.getPrenom());	
+		requete.setString(2, client.getPrenom());
+		requete.setString(3, client.getIdentifiant());
+		requete.setString(4, client.getMdp());
+		requete.setInt(5, client.getNumero());
+		requete.setString(6, client.getRue());
+		requete.setInt(7, client.getCp());
+		requete.setString(8, client.getVille());
+		requete.setString(9, client.getPays());
 		nbLignes = requete.executeUpdate(); 
 		if (nbLignes == 0)
 			throw new IllegalArgumentException("\nEchec lors de la creation du client");
@@ -91,7 +98,7 @@ public class MYSQLClientDAO implements ClientDAO{
 		PreparedStatement requete = laConnexion.prepareStatement("select * from `Client` ");		
 		ResultSet res = requete.executeQuery();		
 		while (res.next()) {
-			listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3)));
+			listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getInt(6), res.getString(7), res.getInt(8), res.getString(9), res.getString(10)));
 		}		
 		if (laConnexion != null)
 			laConnexion.close();

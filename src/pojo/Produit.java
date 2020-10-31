@@ -95,8 +95,7 @@ public class Produit {
 
   @Override
   public String toString() {
-  return "Produit [id=" + id + ", nom=" + nom + ", description=" + description + ", tarif=" + tarif + ", visuel="
-      + visuel + ", idCateg=" + idCateg + "]";
+  return nom +" " +description +" " +tarif +" euros" +" " +visuel;
   }  
 
   public String toStringUtilisateur() {
