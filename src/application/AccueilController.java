@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import connexion.Persistance;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,32 +14,34 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 public class AccueilController implements Initializable {
 
+	@FXML private MenuItem mnu_persistance;
 	@FXML private MenuItem mnu_categorie;
 	@FXML private MenuItem mnu_client;
 	@FXML private MenuItem mnu_commande;
 	@FXML private MenuItem mnu_produit;
 	@FXML private MenuItem mnu_quitter;
+	@FXML private MenuItem mnu_sql;
+	@FXML private MenuItem mnu_liste_memoire;
 	@FXML private MenuItem mnu_info;
-	@FXML private ChoiceBox<Persistance> cbxPersistance;
+	
+	public static connexion.Persistance Peri;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources)  {
-		try {
-			cbxPersistance.getItems().setAll(Persistance.values());
-		} catch (Exception e) {	
-		}
-}
+		Peri=connexion.Persistance.MYSQL;
+	}
 	
-	@FXML
-	public void click_btn() {
-		Persistance p=cbxPersistance.getSelectionModel().getSelectedItem(); 
-		//a fixer
+	public void passage_sql() {
+		Peri=connexion.Persistance.MYSQL;
+	}
+	
+	public void passage_liste_memoire() {
+		Peri=connexion.Persistance.LISTE_MEMOIRE;
 	}
 	
 	@FXML
@@ -112,5 +113,19 @@ public class AccueilController implements Initializable {
 		if (result.get() == btnOui){
 			Platform.exit();
 		}
+	}
+	
+	@FXML
+	public void click_mnu_aide() {
+		try {
+	        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/Aide.fxml"));
+	        Parent root1 = (Parent) fxmlLoader.load();
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root1));  
+	        stage.setTitle("Menu d'aide");
+	        stage.show();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 }

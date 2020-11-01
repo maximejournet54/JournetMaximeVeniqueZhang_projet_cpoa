@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
+import java.sql.Date;
 import dao.modele.CommandeDAO;
 import connexion.ConnexionMYSQL;
 import pojo.*;
@@ -23,29 +22,25 @@ public class MYSQLCommandeDAO implements CommandeDAO{
     
     @Override
     public boolean create(Commande commande) throws SQLException{
-		Connection laConnexion = ConnexionMYSQL.creeConnexion();		
-		int nbLignes = 0;		
-		PreparedStatement requete = laConnexion.prepareStatement("insert into `Commande` (`date_commande`, `id_client`) values (?, ?)");					
-		requete.setDate(1, java.sql.Date.valueOf(commande.getDate()));
-		requete.setInt(2, commande.getId());	
-		//Verification de l'id client rentre
-		PreparedStatement verifIdClient = laConnexion.prepareStatement("select id_client from `Client`");
-		ResultSet resIdClient = verifIdClient.executeQuery();		
-		boolean existId = false;
-		while (resIdClient.next()) {
-			if (commande.getId() == resIdClient.getInt(1))
-				existId = true;
-		}	
-		if (existId)
-			requete.setInt(2, commande.getIdClient());
-		else 
-			throw new IllegalArgumentException("\nIdentifiant de client inexistant");
-		nbLignes = requete.executeUpdate();
-		if (nbLignes == 0)
-			throw new IllegalArgumentException("\nErreur de la creation de la commande");
-		if (laConnexion != null)
-			laConnexion.close();	
-		return nbLignes==1;
+		Connection laConnexion = ConnexionMYSQL.creeConnexion();			
+		PreparedStatement requete = laConnexion.prepareStatement("insert into Commande (date_commande, id_client) values (?, ?)", java.sql.Statement.RETURN_GENERATED_KEYS);					
+		requete.setDate(1, commande.getDate());
+		requete.setInt(2, commande.getIdClient());	
+		
+		int nblignes=requete.executeUpdate();
+		ResultSet res=requete.getGeneratedKeys();
+		
+		int cle;
+		if(res.next()) {
+			cle = res.getInt(1);
+			commande.setId(cle);	
+		}
+		
+		laConnexion.close();
+		requete.close();
+		res.close();
+		
+		return nblignes==1;
 	}
 
     @Override
@@ -66,93 +61,72 @@ public class MYSQLCommandeDAO implements CommandeDAO{
 	}
 
     @Override
-    public boolean update(Commande commande) throws SQLException{	
-		Connection laConnexion = ConnexionMYSQL.creeConnexion();	
-		int nbLignes = 0;		
-		PreparedStatement requete = laConnexion.prepareStatement("update `Commande` set date_commande=?, id_client=? where id_commande=?");
-		requete.setDate(1, java.sql.Date.valueOf(commande.getDate()));	
-		//Verification de l'id client rentre
-		PreparedStatement verifIdClient = laConnexion.prepareStatement("select id_client from `Client`");
-		ResultSet resIdClient = verifIdClient.executeQuery();				
-		boolean existId = false;
-		while (resIdClient.next()) {
-			if (commande.getIdClient() == resIdClient.getInt(1))
-				existId = true;
-		}	
-		if (existId)
-			requete.setInt(2, commande.getIdClient());
-		else 
-			throw new IllegalArgumentException("\nIdentifiant de client inexistant");	
-		requete.setInt(3, commande.getId());		
-		nbLignes = requete.executeUpdate();		
-		if (nbLignes == 0)
-			throw new IllegalArgumentException("\nTentative de modification d'une commande inexistante");	
-		if (laConnexion != null)
-			laConnexion.close();
-		return nbLignes==1;
+    public boolean update(Commande commande) throws SQLException{
+    	int nblignes=0;
+    	Connection laConnexion = ConnexionMYSQL.creeConnexion();			
+		PreparedStatement requete = laConnexion.prepareStatement("update Commande set date_commande=? ,"
+				+ "id_client=? where id_commande=?", java.sql.Statement.RETURN_GENERATED_KEYS);					
+		requete.setDate(1, commande.getDate());
+		requete.setInt(2, commande.getIdClient());
+		requete.setInt(3, commande.getId());
+		
+		nblignes=requete.executeUpdate();
+		ResultSet res=requete.getGeneratedKeys();
+		int cle;
+		
+		if(res.next()) {
+			cle=res.getInt(1);
+			commande.setId(cle);
+		}
+		laConnexion.close();
+		requete.close();
+		res.close();
+		
+		return nblignes==1;
 	}
 
     @Override
     public Commande getById(int id) throws SQLException{
 		Commande commande = null;		
-		HashMap<Produit, LigneCommande> ligneCommande = new HashMap<Produit, LigneCommande>();	
+
 		Connection laConnexion = ConnexionMYSQL.creeConnexion();	
-		//requete pour obtenir la commande desiree
-		PreparedStatement requete = laConnexion.prepareStatement("select * from `Commande` where id_commande=" + id);
-		ResultSet res = requete.executeQuery();		
-		if (res.next()) {
-			//requete pour obtenir toute les lignes de commandes concernees par cette commande
-			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_commande` where id_commande=" + id);
-			ResultSet resLc = requeteLc.executeQuery();	
-			while (resLc.next()) {
-				//requete pour obtenir pour les produits concernes par la commande
-				PreparedStatement requeteProd = laConnexion.prepareStatement("select * from `Produit` where id_produit=" + resLc.getInt(2));
-				ResultSet resProd = requeteProd.executeQuery();				
-				Produit prod = null;
-				if (resProd.next()) 
-					prod = new Produit(resProd.getInt(1), resProd.getString(2), resProd.getString(3), resProd.getFloat(4), resProd.getString(5), resProd.getInt(6));
-				else 
-					throw new IllegalArgumentException("Aucun produit ne possede cet identifiant");				
-				ligneCommande.put(prod, new LigneCommande(resLc.getInt(1), resLc.getInt(2), resLc.getInt(3), resLc.getFloat(4)));
-			}		
-			commande = new Commande(res.getInt(1), res.getDate(2).toLocalDate(), res.getInt(3), ligneCommande);
+		PreparedStatement requete = laConnexion.prepareStatement("select * from Commande` where id_commande=?" );
+		requete.setInt(1, id);
+		
+		ResultSet res = requete.executeQuery();	
+		Client c=null;
+		int idclient=0;
+		while (res.next()) {
+			commande= new Commande(id,res.getDate(2), c);
+			Date d=commande.getDate();
+			commande.setDate(d);;
+			idclient=res.getInt("id_client");
 		}
-		else 
-			throw new IllegalArgumentException("\nAucune commande ne possede cet identifiant");		
-		if (laConnexion != null)
-			laConnexion.close();
+		PreparedStatement req1=laConnexion.prepareStatement("select * from Client where id_client="+idclient);
+		ResultSet res1 = req1.executeQuery();
+		while (res1.next()) {
+			c= new Client(idclient,res1.getString("nom"),res1.getString("prenom"));
+			
+		}
+		commande.setIdClient2(c);
+		laConnexion.close();
+		requete.close();
+		res.close();
 		return commande;
 	}
-
-	@Override
-	public ArrayList<Commande> findAll() throws SQLException{
-		ArrayList<Commande> listeCommande = new ArrayList<Commande>();
-		Connection laConnexion = ConnexionMYSQL.creeConnexion();		
-		//requete pour obtenir toutes les commandes
-		PreparedStatement requete = laConnexion.prepareStatement("select * from `Commande`");
-		ResultSet res = requete.executeQuery();		
+    
+    @Override
+    public ArrayList<Commande> findAll() throws SQLException{
+    	ArrayList<Commande> listeCommande = new ArrayList<Commande>();
+    	Connection laConnexion = ConnexionMYSQL.creeConnexion();
+		PreparedStatement requete = laConnexion.prepareStatement("select * from Commande ");	
+		ResultSet res = requete.executeQuery();
 		while (res.next()) {
-			HashMap<Produit, LigneCommande> ligneCommande = new HashMap<Produit, LigneCommande>();		
-			//requete pour obtenir toute les lignes de commandes concernees par cette commande
-			PreparedStatement requeteLc = laConnexion.prepareStatement("select * from `Ligne_commande` where id_commande=" + res.getInt(1));
-			ResultSet resLc = requeteLc.executeQuery();		
-			while (resLc.next()) {
-				//requete pour obtenir pour les produits concernes par la commande
-				PreparedStatement requeteProd = laConnexion.prepareStatement("select * from `Produit` where id_produit=" + resLc.getInt(2));
-				ResultSet resProd = requeteProd.executeQuery();				
-				Produit produit = null;
-				if (resProd.next()) 
-					produit = new Produit(resProd.getInt(1), resProd.getString(2), resProd.getString(3), resProd.getFloat(4), resProd.getString(5), resProd.getInt(6));
-				else 
-					throw new IllegalArgumentException("Aucun produit ne possede cet identifiant");				
-				LigneCommande ligne = new LigneCommande(resLc.getInt(1), resLc.getInt(2), resLc.getInt(3), resLc.getFloat(4));				
-				ligneCommande.put(produit, ligne);
-			}
-			
-			listeCommande.add(new Commande(res.getInt(1), res.getDate(2).toLocalDate(), res.getInt(3), ligneCommande));
-		}		
-		if (laConnexion != null)
-			laConnexion.close();		
-		return listeCommande;
+			listeCommande.add(new Commande(res.getInt("id_commande"),res.getDate("date_commande"), res.getInt("id_client")));
+		}
+		requete.close();
+		res.close();
+		return listeCommande;	
 	}
 }
+

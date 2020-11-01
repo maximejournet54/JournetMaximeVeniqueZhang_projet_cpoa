@@ -1,15 +1,11 @@
 package application;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import connexion.Persistance;
 import dao.factory.DAOFactory;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -73,8 +69,7 @@ public class CategorieController  implements Initializable {
 			Categorie c1 = new Categorie(1, titre, visuel);
 			
 			try {
-				DAOFactory.getDAOFactory(Persistance.MYSQL).getCategorieDAO().create(c1);
-				DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE).getCategorieDAO().create(c1); 	
+				DAOFactory.getDAOFactory(AccueilController.Peri).getCategorieDAO().create(c1);	
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -119,8 +114,7 @@ public class CategorieController  implements Initializable {
 			Categorie c1 = new Categorie(1, titre, visuel);
 			
 			try {
-				DAOFactory.getDAOFactory(Persistance.MYSQL).getCategorieDAO().create(c1);
-				DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE).getCategorieDAO().create(c1); 	
+				DAOFactory.getDAOFactory(AccueilController.Peri).getCategorieDAO().create(c1);	 	
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -138,48 +132,6 @@ public class CategorieController  implements Initializable {
 		initialize(null, null);
 		
 	}
-	
-	public static void addTextFilterB(ObservableList<List<Object>> allData,TextField editTri , TableView<List<Object>> table) {
-		FilteredList<List<Object>> filteredData  = new FilteredList<>(allData, p -> true);
-		editTri.setOnKeyReleased(e ->
-		{
-			filteredData.setPredicate(p  ->
-			{
-			if (editTri.getText() == null || editTri.getText().isEmpty()){
-				return true;
-			}
-			else {
-			String pToString = p.toString().toLowerCase().replace(", "," ");
-			String textIwantB = editTri.getText();
-			String[] parts = textIwantB.toLowerCase().split(" ");
-			
-			if(p.contains(textIwantB)){
-				System.out.println("p.: " + p);
-			}
-			
-			int counter = 0;
-			for (int i = 0; i < parts.length; i ++) {
-			if (parts[i] != null)
-			  if(!(pToString.contains(parts[i]))){
-			      System.out.println("this one is eliminated: " + pToString);
-			      return false;
-			  }
-			  counter++;
-			}
-			
-			System.out.println("counter: " + counter);
-			
-			return pToString.contains(parts[0]);
-			}
-			});
-		
-		
-		});
-		
-		SortedList<List<Object>> sortedData = new SortedList<>(filteredData);
-		sortedData.comparatorProperty().bind(table.comparatorProperty());
-		table.setItems(sortedData);
-}
 	
 }
 

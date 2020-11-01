@@ -109,9 +109,9 @@ public class ProduitController implements Initializable {
 			initialize(null, null);
 			this.lblAffichage.setTextFill(Color.web("#000000"));
 			if(tarif > 1) 
-				this.lblAffichage.setText(p1.toStringUtilisateur() + "s");
+				this.lblAffichage.setText(p1.toString());
 			else 
-				this.lblAffichage.setText(p1.toStringUtilisateur());
+				this.lblAffichage.setText(p1.toString());
 		}
 	}
 	
@@ -169,9 +169,9 @@ public class ProduitController implements Initializable {
 			initialize(null, null);
 			this.lblAffichage.setTextFill(Color.web("#000000"));
 			if(tarif > 1) 
-				this.lblAffichage.setText(p1.toStringUtilisateur() + "s");
+				this.lblAffichage.setText(p1.toString());
 			else 
-				this.lblAffichage.setText(p1.toStringUtilisateur());
+				this.lblAffichage.setText(p1.toString());
 		}
 	}
 

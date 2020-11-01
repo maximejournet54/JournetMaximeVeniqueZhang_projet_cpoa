@@ -95,7 +95,7 @@ public class ListeMemoireCommandeDAO implements CommandeDAO {
 		HashMap<Produit, LigneCommande> ligneCommandeTest = new HashMap<Produit, LigneCommande>();
 		int idx = this.donnees.indexOf(new Commande(id, LocalDate.of(2020, Month.JANUARY, 1),0,ligneCommandeTest));
 		if (idx == -1) {
-			throw new IllegalArgumentException("Aucune commande ne possède cet identifiant");
+			throw new IllegalArgumentException("Aucune commande ne possede cet identifiant");
 		} else {
 			return this.donnees.get(idx);
 		}
