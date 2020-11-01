@@ -43,7 +43,7 @@
                      <font>
                         <Font size="19.0" />
                      </font></Button>
-                  <Label fx:id="lblAffichage" prefHeight="34.0" prefWidth="77.0" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="lblAffichage" prefHeight="36.0" prefWidth="393.0" text="Label" textFill="#1530b7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="25.0" />
                      </font></Label>
@@ -53,8 +53,9 @@
                <children>
                   <TableView fx:id="editView" layoutX="44.0" layoutY="63.0" prefHeight="200.0" prefWidth="530.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn fx:id="editViewtitre" prefWidth="174.79236221313477" text="Titre" />
-                      <TableColumn fx:id="editViewvisuel" prefWidth="167.3018341064453" text="Visuel" />
+                      <TableColumn fx:id="editViewCategorie" prefWidth="174.79236221313477" text="Id_categorie" />
+                      <TableColumn fx:id="editViewTitre" prefWidth="167.3018341064453" text="Titre" />
+                        <TableColumn fx:id="editViewvisuel" prefWidth="186.75469970703125" text="Visuel" />
                     </columns>
                   </TableView>
                   <Button fx:id="btn_modifier" layoutX="607.0" layoutY="72.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">

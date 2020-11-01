@@ -60,6 +60,6 @@ public class Categorie {
     
     @Override
 	public String toString() {
-		return titre +" "+ visuel;
+		return titre +"\n "+ visuel;
 	}
 }

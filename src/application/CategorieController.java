@@ -30,7 +30,8 @@ public class CategorieController  implements Initializable {
 	@FXML private TextField editVisuel;
 	@FXML private TextField editTri;
 	@FXML private TableView<Categorie> editView;
-	@FXML private TableColumn<Categorie, String> editViewtitre;
+	@FXML private TableColumn<Categorie, String> editViewCategorie;
+	@FXML private TableColumn<Categorie, String> editViewTitre;
 	@FXML private TableColumn<Categorie, String> editViewvisuel;
 	
 	DAOFactory dao = DAOFactory.getDAOFactory(Persistance.MYSQL);
@@ -42,7 +43,8 @@ public class CategorieController  implements Initializable {
 	    	this.editTitre.setText("");
 	    	this.editVisuel.setText("");
 	    	this.editView.setItems(FXCollections.observableArrayList(dao.getCategorieDAO().findAll()));
-	    	this.editViewtitre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+	    	this.editViewCategorie.setCellValueFactory(new PropertyValueFactory<>("id"));
+	    	this.editViewTitre.setCellValueFactory(new PropertyValueFactory<>("titre"));
 	        this.editViewvisuel.setCellValueFactory(new PropertyValueFactory<>("visuel"));
 
 		} catch (Exception e) {

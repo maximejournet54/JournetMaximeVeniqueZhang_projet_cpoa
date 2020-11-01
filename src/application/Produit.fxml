@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProduitController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="761.0" style="-fx-background-color: #666666;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProduitController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <GridPane alignment="CENTER" prefHeight="201.0" prefWidth="551.0">
+            <GridPane alignment="CENTER" prefHeight="356.0" prefWidth="762.0">
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -91,25 +91,27 @@
                      </font></Label>
                </children>
             </GridPane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="388.0" prefWidth="762.0">
                <children>
-                  <TableView fx:id="editView" layoutX="27.0" layoutY="36.0" prefHeight="157.0" prefWidth="391.0" style="-fx-background-color: #525252;">
+                  <TableView fx:id="editView" layoutX="25.0" layoutY="60.0" prefHeight="215.0" prefWidth="588.0" style="-fx-background-color: #525252;">
                     <columns>
-                      <TableColumn fx:id="editViewNom" prefWidth="75.0" text="Nom" />
-                      <TableColumn fx:id="editViewDescription" prefWidth="139.33333587646484" text="Description" />
-                        <TableColumn fx:id="editViewTarif" prefWidth="65.3333740234375" text="Tarif" />
-                        <TableColumn fx:id="editViewCategorie" prefWidth="106.66668701171875" text="Categorie" />
+                      <TableColumn fx:id="editViewProduit" prefWidth="67.01892471313477" text="Id_produit" />
+                      <TableColumn fx:id="editViewNom" prefWidth="131.32080078125" text="Nom" />
+                        <TableColumn fx:id="editViewDescription" prefWidth="124.07537841796875" text="Description" />
+                        <TableColumn fx:id="editViewTarif" prefWidth="62.4906005859375" text="Tarif" />
+                        <TableColumn fx:id="editViewVisuel" prefWidth="117.73583984375" text="Visuel" />
+                        <TableColumn fx:id="editViewCategorie" prefWidth="81.73577880859375" text="Id_categorie" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btn_modifier" layoutX="462.0" layoutY="41.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
+                  <Button fx:id="btn_modifier" layoutX="625.0" layoutY="117.0" mnemonicParsing="false" onAction="#click_btn_modifier" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Modifier" textFill="#1530b7">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <Button fx:id="btn_supprimer" layoutX="462.0" layoutY="100.0" mnemonicParsing="false" onAction="#click_btn_supprimer" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
+                  <Button fx:id="btn_supprimer" layoutX="625.0" layoutY="201.0" mnemonicParsing="false" onAction="#click_btn_supprimer" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #525252;" text="Supprimer" textFill="#1530b7">
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <TextField fx:id="editTri" layoutX="114.0" layoutY="1.0" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #525252;" text="Trier/Filtrer" />
+                  <TextField fx:id="editTri" layoutX="187.0" layoutY="25.0" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #525252;" text="Trier/Filtrer" />
                </children>
             </Pane>
          </children>

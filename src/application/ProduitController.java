@@ -34,9 +34,11 @@ public class ProduitController implements Initializable {
 	@FXML private TextArea editDesc; 
 	@FXML private ChoiceBox<Categorie> cbxCategorie;
 	@FXML private TableView<Produit> editView;
+	@FXML private TableColumn<Produit, String> editViewProduit;
 	@FXML private TableColumn<Produit, String> editViewNom;
 	@FXML private TableColumn<Produit, String> editViewDescription;
 	@FXML private TableColumn<Produit, String> editViewTarif;
+	@FXML private TableColumn<Produit, String> editViewVisuel;
 	@FXML private TableColumn<Produit, String> editViewCategorie;
 
 	DAOFactory dao = DAOFactory.getDAOFactory(Persistance.MYSQL);
@@ -48,13 +50,14 @@ public class ProduitController implements Initializable {
 	    	this.editNom.setText("");
 	    	this.editDesc.setText("");
 	    	this.editTarif.setText("");
-	    	//this.cbxCategorie.setSelectionModel(null);
 			this.cbxCategorie.setItems(FXCollections.observableArrayList(dao.getCategorieDAO().findAll()));
 			this.editView.setItems(FXCollections.observableArrayList(dao.getProduitDAO().findAll()));
+			this.editViewProduit.setCellValueFactory(new PropertyValueFactory<>("id"));
 	    	this.editViewNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
 	        this.editViewDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 	        this.editViewTarif.setCellValueFactory(new PropertyValueFactory<>("tarif"));
-	        this.editViewCategorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+	        this.editViewVisuel.setCellValueFactory(new PropertyValueFactory<>("visuel"));
+	        this.editViewCategorie.setCellValueFactory(new PropertyValueFactory<>("idCateg"));
 	        
 	        //tri a faire
 	        
